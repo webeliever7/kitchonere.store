@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Checkout| Kitchonere</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <style>
+        .kc-checkout-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            min-height: calc(100vh - 200px); /* Accounts for header/footer */
+        }
+
+        .kc-checkout-container h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 2.5rem;
+        }
+
+        .kc-checkout-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .kc-order-summary {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+
+        .kc-order-summary h2 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: #333;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+        }
+
+        #checkout-product {
+            padding: 15px 0;
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .kc-total {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .kc-checkout-form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .kc-checkout-form h2 {
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            color: #333;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+        }
+
+        .kc-form-group {
+            margin-bottom: 20px;
+        }
+
+        .kc-form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .kc-form-group input:focus {
+            outline: none;
+            border-color: #4CAF50;
+            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.1);
+        }
+
+        .kc-payment-options {
+            margin: 25px 0;
+        }
+
+        .kc-payment-choice {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .kc-payment-choice:hover {
+            border-color: #4CAF50;
+            background-color: #f8f9fa;
+        }
+
+        .kc-payment-choice label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            margin-bottom: 0;
+        }
+
+        .kc-payment-choice input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .kc-complete-purchase {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .kc-complete-purchase:hover {
+            background-color: #45a049;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            color: white;
+            text-decoration: none;
+        }
+
+        .kc-complete-purchase:active {
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .kc-checkout-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .kc-checkout-container {
+                margin: 20px auto;
+            }
+
+            .kc-checkout-container h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .kc-checkout-container {
+                padding: 0 15px;
+            }
+
+            .kc-checkout-form,
+            .kc-order-summary {
+                padding: 20px;
+            }
+
+            .kc-checkout-container h1 {
+                font-size: 1.8rem;
+            }
+
+            .kc-form-group input {
+                padding: 10px;
+            }
+        }
+    </style>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <div class="logo"><a href="/" class="text-decoration-none text-dark">Kitchonere</a></div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        
+                    <li class="nav-item"><a class="nav-link" href="terms.html">Terms</a></li>
+                    <li class="nav-item"><a class="nav-link" href="privacy-policy.html">Privacy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="kc-checkout-container">
+        <h1>Checkout</h1>
+
+        <div class="kc-checkout-content">
+            <div class="kc-order-summary">
+                <h2>Order Summary</h2>
+                <div id="checkout-product"> #67898765678900</div>
+                <div class="kc-total">
+                    <span>Total:</span>
+                    <span id="total-amount">$232</span>
+                </div>
+            </div>
+
+            <div class="kc-checkout-form">
+                <h2>Shipping Information</h2>
+                <form id="checkout-form">
+                    <div class="kc-form-group">
+                        <input type="text" placeholder="Full Name">
+                    </div>
+                    <div class="kc-form-group">
+                        <input type="email" placeholder="Email">
+                    </div>
+                    <div class="kc-form-group">
+                        <input type="text" placeholder="Address">
+                    </div>
+                    <div class="kc-form-group">
+                        <input type="text" placeholder="Phone">
+                    </div>
+                    <div class="kc-form-group kc-payment-options">
+                        <div class="kc-payment-choice">
+                            <input type="radio" id="cod-payment" name="payment-method" value="cod">
+                            <label for="cod-payment">
+                                <i class="fas fa-money-bill-wave"></i>
+                                Cash on Delivery
+                            </label>
+                        </div>
+                    </div>
+
+                    <a href="thank-you.html" class="kc-complete-purchase">Complete Purchase</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer class="kc-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Kitchonere</h3>
+                <p>Crafting premium accessories for the modern kitchen.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.x.com/"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+           
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i> contact@Kitchonere.com</p>
+                <p><i class="fas fa-phone"></i> 574-538-2015</p>
+                <p><i class="fas fa-map-marker-alt"></i> 3128 Villa Drive Goshen, IN 46526</p>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <p style="color: black; font-size: 1rem;">&copy; 2024 Kitchonere. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

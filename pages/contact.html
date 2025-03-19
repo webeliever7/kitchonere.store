@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <title>Contact Us - Kitchonere</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <div class="logo"><a href="/" class="text-decoration-none text-dark">Kitchonere</a></div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        
+                    <li class="nav-item"><a class="nav-link" href="terms.html">Terms</a></li>
+                    <li class="nav-item"><a class="nav-link" href="privacy-policy.html">Privacy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="contact-container">
+        <div class="contact-content">
+            <div class="contact-info-section">
+                <h1>Get in Touch</h1>
+                <p class="contact-subtitle">We'd love to hear from you. Please fill out this form or use our contact
+                    information below.</p>
+
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Visit Us</h3>
+                            <p>L3128 Villa Drive Goshen</p>
+                            <p>IN 46526</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Call Us</h3>
+                            <p>574-538-2015</p>
+                            <p>Mon-Fri: 9am - 6pm EST</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email Us</h3>
+                            <p>contact@Kitchonere.com</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-connect">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.pinterest.com/"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-section">
+                <h2>Send us a Message</h2>
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="product">Product Information</option>
+                            <option value="order">Order Status</option>
+                            <option value="support">Customer Support</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+                <div id="thank-you" style="display: none;">
+                    <p>Thank you for your message! We greatly appreciate you taking the time to reach out to us. Our
+                        team is
+                        now reviewing your inquiry, and we will do our best to respond as quickly as possible. We
+                        understand
+                        that your time is valuable, and we are committed to providing you with a thorough and helpful
+                        response. We look forward to assisting you!</p>
+                </div>
+            </div>
+
+            <script>
+                document.getElementById('contact-form').addEventListener('submit', function (event) {
+                    event.preventDefault(); // Prevent default form submission
+                    document.getElementById('contact-form').style.display = 'none'; // Hide the form
+                    document.getElementById('thank-you').style.display = 'block'; // Show the thank you message
+                    // Here you would normally add code to actually submit the form data,
+                    // either via AJAX or by redirecting to a server-side script.
+                    // For this example, we are just showing the thank you message.
+                });
+            </script>
+        </div>
+
+        <div class="map-section">
+            <h2>Our Location</h2>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1832416846336!2d-73.9878531!3d40.7484445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9aeb1c6b5%3A0x35b1cfbc89a6097f!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1647677854367!5m2!1sen!2sus"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer class="kc-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Kitchonere</h3>
+                <p>Crafting premium accessories for the modern kitchen.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.x.com/"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+           
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i> contact@Kitchonere.com</p>
+                <p><i class="fas fa-phone"></i> 574-538-2015</p>
+                <p><i class="fas fa-map-marker-alt"></i> 3128 Villa Drive Goshen, IN 46526</p>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <p style="color: black; font-size: 1rem;">&copy; 2024 Kitchonere. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+
+</body>
+
+</html>
